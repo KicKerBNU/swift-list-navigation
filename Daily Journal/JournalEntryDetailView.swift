@@ -14,7 +14,7 @@ struct JournalEntryDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text(String(repeating: "⭐️", count: detailJournalEntry.rating))
+                Text(String(repeating: "⭐️", count: Int(detailJournalEntry.rating)))
                 Text(detailJournalEntry.date, style: .date)
                     .bold()
                 Text(detailJournalEntry.text)

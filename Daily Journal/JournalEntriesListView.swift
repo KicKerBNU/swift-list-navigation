@@ -12,6 +12,8 @@ struct JournalEntriesListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var journalEntries: [JournalEntry]
     
+    @State var showCreateView = false;
+    
     var body: some View {
         NavigationStack {
             List(journalEntries) { listedJournalEntry in
@@ -30,16 +32,17 @@ struct JournalEntriesListView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showCreateView) {
+                CreateJournalEntryView()
+            }
         }
         
     }
     private func addItem() {
         withAnimation {
             //Create the object
-            let newItem = JournalEntry(title: "new item", text: "This is a text", rating: 3, date: Date(timeIntervalSinceNow: 24))
-            
-            //Saving into SwiftData
-            modelContext.insert(newItem)
+            showCreateView = true;
+
         }
     }
     private func deleteItems(offsets: IndexSet) {
