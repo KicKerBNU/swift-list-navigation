@@ -6,23 +6,26 @@
 //
 
 import Foundation
+import SwiftData
 
-class JournalEntry: Identifiable {
+@Model
+final class JournalEntry {
     var title: String = ""
-    var description: String = ""
+    var text: String = ""
     var rating: Int = 1
     var date: Date = Date()
     
-    init(title: String, description: String, rating: Int, date: Date) {
+    init(title: String, text: String, rating: Int, date: Date) {
         self.title = title
-        self.description = description
+        self.text = text
         self.rating = rating
         self.date = date
     }
 }
 
-let journalEntries: [JournalEntry] = [
-    JournalEntry(title: "Good Study", description: "Dont lose time with social midia, study and learn new things to be more productive and more able to achieve your objectives in life", rating: 3, date: Date()),
-    JournalEntry(title: "Headache", description: "woke up with a headache in the entire day", rating: 1, date: Date()),
-    JournalEntry(title: "My App is Live", description: "My app is live in the App Store", rating: 4, date: Date()),
-]
+
+//let journalEntries: [JournalEntry] = [
+//    JournalEntry(title: "Good Study", text: "Dont lose time with social midia, study and learn new things to be more productive and more able to achieve your objectives in life", rating: 3, date: Date()),
+//    JournalEntry(title: "Headache", text: "woke up with a headache in the entire day", rating: 1, date: Date()),
+//    JournalEntry(title: "My App is Live", text: "My app is live in the App Store", rating: 4, date: Date()),
+//]

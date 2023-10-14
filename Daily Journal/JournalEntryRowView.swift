@@ -18,7 +18,7 @@ struct JournalEntryRowView: View {
                     .lineLimit(1)
                     .bold()
                 Text("-")
-                Text(rowJournalEntry.description)
+                Text(rowJournalEntry.text)
                     .lineLimit(1)
                     .foregroundStyle(.secondary)
             }
@@ -38,7 +38,7 @@ struct JournalEntryRowView: View {
     List {
         JournalEntryRowView(rowJournalEntry: JournalEntry(
             title: "A good day to study",
-            description: "Dont lose time with social midia, study and learn new things to be more productive and more able to achieve your objectives in life",
+            text: "Dont lose time with social midia, study and learn new things to be more productive and more able to achieve your objectives in life",
             rating: 3,
             date: Date())
         )
