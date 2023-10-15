@@ -12,7 +12,7 @@ struct JournalEntryRowView: View {
     let rowJournalEntry: JournalEntry
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text(rowJournalEntry.title)
                     .lineLimit(1)
@@ -22,15 +22,12 @@ struct JournalEntryRowView: View {
                     .lineLimit(1)
                     .foregroundStyle(.secondary)
             }
-            HStack {
+            HStack(alignment: .top) {
                 Text(rowJournalEntry.date, style: .date)
                 Spacer()
                 Text(String(repeating: "⭐️", count: Int(rowJournalEntry.rating)))
-                    
-                
             }
         }
-        
     }
 }
 

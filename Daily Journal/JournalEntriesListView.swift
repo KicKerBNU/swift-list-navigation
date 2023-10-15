@@ -10,14 +10,14 @@ import SwiftData
 
 struct JournalEntriesListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var journalEntries: [JournalEntry]
+    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]
     
     @State var showCreateView = false;
     
     var body: some View {
         NavigationStack {
             List(journalEntries) { listedJournalEntry in
-                NavigationLink(destination: JournalEntryDetailView(detailJournalEntry: listedJournalEntry)) {
+                NavigationLink(destination: EditJournalEntryView(editingJournalEntry:  listedJournalEntry)) {
                     JournalEntryRowView(rowJournalEntry: listedJournalEntry)
                 }
             }
@@ -31,6 +31,7 @@ struct JournalEntriesListView: View {
                         Label("Add new journal entry", systemImage: "plus")
                     }
                 }
+                
             }
             .sheet(isPresented: $showCreateView) {
                 CreateJournalEntryView()
